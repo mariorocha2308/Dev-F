@@ -1,0 +1,9 @@
+.app {
+  background-color: #151515;
+  font-family: 'Poppins', sans-serif;
+}
+
+.responsive-width { 
+  max-width: 1300px;
+  margin: auto;
+}
