@@ -19,8 +19,8 @@ const SideChat = () => {
   }, [refresh]);
 
   return (  
-    <Box display='flex' width='25%' fontSize='15px' position='relative' flexDirection='column'>
-      <Text color='whiteAlpha.900' fontWeight='medium'>Recents</Text>
+    <Box display='flex' width='25%' fontSize='15px' position='relative' flexDirection='column' minWidth='90px'>
+      <Text color='whiteAlpha.900' fontWeight='medium' paddingLeft='5' display={['none', 'block', 'block', 'block']}>Recents</Text>
       <IconButton
         position='absolute'
         bottom='10'
@@ -33,7 +33,7 @@ const SideChat = () => {
       />
       <List spacing='3' marginTop='5'>
         {chats?.map((chat: any) => (
-          <ListItemContact name={chat.name} lastMessage={chat?.messages[chat?.messages?.length - 1]?.data} colorTitle='cyan' focusConversation={() => setConversation(chat)} key={chat.id}/>
+          <ListItemContact name={chat.name} lastMessage={chat?.messages[chat?.messages?.length - 1]?.data} colorTitle='cyan' focusConversation={() => setConversation(chat)} key={chat.id} mediaDisplay={['none', 'none', 'none', 'block']} mediaPadding='5'/>
         ))}
       </List>
       <Contacts isOpen={visible} onClose={onHandleClose}/>

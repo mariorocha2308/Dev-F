@@ -13,6 +13,7 @@ const Contacts = (props: IPropsContact) => {
   const { contacts } = useStoreContacts()
   const { chats } = useStoreChat()
   const { setChats } = useStoreChat()
+  console.log(contacts);
 
   const onHandleSend = (data: any) => {
     setChats(data)
@@ -28,9 +29,9 @@ const Contacts = (props: IPropsContact) => {
         <ModalBody>
           <List spacing='3'>
             {contacts?.map((contact: any) => (
-              <ListItemContact name={contact.name} id={contact.id} key={contact.id}>
+              <ListItemContact name={contact.name} id={contact.id} key={contact.id} textPhone={contact.phone}>
                 <Button colorScheme='gray' onClick={() => onHandleSend(contact)} 
-                disabled={chats.some((chat: any) => chat.id === contact.id)}>Send message</Button>
+                disabled={chats.some((chat: any) => chat.id === contact.id)} fontSize='14'>Talk</Button>
               </ListItemContact>
             ))}
           </List>

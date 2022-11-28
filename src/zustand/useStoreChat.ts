@@ -5,7 +5,8 @@ interface chatState {
   refresh: boolean,
   setChats: (payload: any) => void,
   addMessages: (payload: any, id: number) => void,
-  setRefresh: () => void
+  setRefresh: () => void,
+  deleteChat: (payload: number) => void
 }
 
 const useStoreChat = create<chatState>((set, get) => ({
@@ -24,7 +25,17 @@ const useStoreChat = create<chatState>((set, get) => ({
     setTimeout(() => {
       set({refresh: false})
     }, 1000);
-  }
+  },
+  deleteChat: (payload) => {
+    const cleanList = get().chats.filter((chat: any) => chat.id !== payload)
+    get().chats.find((chat: any) => {
+      if (chat.id === payload) {
+        chat.messages = []
+      }
+    })
+    set({chats: cleanList})
+    console.log(get().chats);
+  } 
 }))
 
 export { useStoreChat }

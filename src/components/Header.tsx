@@ -4,7 +4,7 @@ import Logo from './Logo';
 const Header = () => {
 
   return ( 
-    <Box display='flex' alignItems='center' paddingY='1.5rem' color='skyblue' fontWeight='bold' gap='3' height='10vh'>
+    <Box display='flex' alignItems='center' paddingY='1.5rem' color='skyblue' fontWeight='bold' gap='3' height='10vh' paddingLeft='5'>
       <Logo/>
       <Text>Senseigram</Text>
     </Box>
