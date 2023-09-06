@@ -7,6 +7,7 @@ export const getContactsQuery = () => {
       return {
         id: contact.id,
         name: contact.name,
+        image: `https://source.boringavatars.com/beam/40/${contact.name}?colors=264653,f4a261,e76f51`,
         phone: contact.phone,
         messages: []
       }

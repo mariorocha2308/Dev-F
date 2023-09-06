@@ -1,11 +1,11 @@
-import { Avatar, Text, ListItem, Box } from "@chakra-ui/react";
+import { Avatar, Text, Box, AvatarBadge } from "@chakra-ui/react";
 
 interface IPropsItem {
   id?: number,
   colorTitle?: string,
   name: string,
+  image: string
   lastMessage?: string,
-  textPhone?: string,
   mediaDisplay?: string[]
   mediaPadding?: string,
   children?: JSX.Element,
@@ -15,19 +15,18 @@ interface IPropsItem {
 const ListItemContact = (props: IPropsItem) => {
 
   return (
-    <ListItem display='flex' justifyContent='space-between' alignItems='center' onClick={props.focusConversation} cursor='pointer'>
-      <Box display='flex' gap='3' alignItems='center' paddingLeft={props.mediaPadding}>
-        <Avatar name={props.name}/>
+    <Box display='flex' justifyContent='space-between' alignItems='center' onClick={props.focusConversation} cursor='pointer' marginLeft='1rem'>
+      <Box display='flex' alignItems='center' gap={['0rem', '0rem', '0rem', '1rem']}>
+        <Avatar src={props.image} size={['md', 'md', 'md', 'sm']}>
+          <AvatarBadge boxSize='1rem' bg='green.500' />
+        </Avatar>
         <Box>
-          <Text fontWeight='medium' color={props.colorTitle} display={props.mediaDisplay}>{props.name}</Text>
-          {props.textPhone ? 
-            <Text fontWeight='medium' color='blackAlpha.700' fontSize='13.5' width='220px' textOverflow='ellipsis' whiteSpace='nowrap' overflow='hidden' display={props.mediaDisplay}>{props.textPhone}</Text> :
-            <Text fontWeight='medium' color='whiteAlpha.700' fontSize='13.5' width='220px' textOverflow='ellipsis' whiteSpace='nowrap' overflow='hidden' display={props.mediaDisplay}>{props.lastMessage ?? 'Ready, write it!'}</Text>
-          }
+          <Text fontWeight='medium' color={props.colorTitle} width='150px' textOverflow='ellipsis' whiteSpace='nowrap' overflow='hidden' display={props.mediaDisplay}>{props.name}</Text>
+          <Text fontWeight='medium' color='whiteAlpha.700' fontSize='13.5' width='150px' textOverflow='ellipsis' whiteSpace='nowrap' overflow='hidden' display={props.mediaDisplay}>{props.lastMessage ?? 'Send message!!'}</Text>
         </Box>
       </Box>
       {props.children}
-    </ListItem>
+    </Box>
   );
 }
 

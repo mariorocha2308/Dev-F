@@ -2,7 +2,6 @@ import { useEffect } from 'react'
 import { Box } from '@chakra-ui/react'
 import './App.css'
 
-import Header from './components/Header'
 import SideChat from './components/SideChat'
 import SideConversation from './components/SideConversation'
 
@@ -22,12 +21,9 @@ function App() {
 
   return (
     <Box className='app'>
-      <Box className='responsive-width'>
-        <Header/>
-        <Box display='flex' height='90vh'>
-          <SideChat/>
-          <SideConversation/>
-        </Box>
+      <Box className='responsive-width' display={['column','column', 'column', 'flex']} height='90vh'>
+        <SideChat/>
+        <SideConversation/>
       </Box>
     </Box>
   )

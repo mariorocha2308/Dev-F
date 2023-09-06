@@ -20,6 +20,8 @@ const Contacts = (props: IPropsContact) => {
     props.onClose()
   } 
 
+  console.log(contacts);
+
   return (  
     <Modal isOpen={props.isOpen} onClose={props.onClose} scrollBehavior='inside' size='lg'>
       <ModalOverlay />
@@ -29,7 +31,7 @@ const Contacts = (props: IPropsContact) => {
         <ModalBody>
           <List spacing='3'>
             {contacts?.map((contact: any) => (
-              <ListItemContact name={contact.name} id={contact.id} key={contact.id} textPhone={contact.phone}>
+              <ListItemContact name={contact.name} id={contact.id} key={contact.id} textPhone={contact.phone} image={contact.image}>
                 <Button colorScheme='gray' onClick={() => onHandleSend(contact)} 
                 disabled={chats.some((chat: any) => chat.id === contact.id)} fontSize='14'>Talk</Button>
               </ListItemContact>
