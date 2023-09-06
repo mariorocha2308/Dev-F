@@ -4,6 +4,8 @@ interface IPropsItem {
   id?: number,
   colorTitle?: string,
   name: string,
+  ml: string,
+  gap: string[],
   image: string
   lastMessage?: string,
   mediaDisplay?: string[]
@@ -15,8 +17,8 @@ interface IPropsItem {
 const ListItemContact = (props: IPropsItem) => {
 
   return (
-    <Box display='flex' justifyContent='space-between' alignItems='center' onClick={props.focusConversation} cursor='pointer' marginLeft='1rem'>
-      <Box display='flex' alignItems='center' gap={['0rem', '0rem', '0rem', '1rem']}>
+    <Box display='flex' justifyContent='space-between' alignItems='center' onClick={props.focusConversation} cursor='pointer' marginLeft={props.ml}>
+      <Box display='flex' alignItems='center' gap={props.gap}>
         <Avatar src={props.image} size={['md', 'md', 'md', 'sm']}>
           <AvatarBadge boxSize='1rem' bg='green.500' />
         </Avatar>

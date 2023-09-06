@@ -31,7 +31,7 @@ const Contacts = (props: IPropsContact) => {
         <ModalBody>
           <List spacing='3'>
             {contacts?.map((contact: any) => (
-              <ListItemContact name={contact.name} id={contact.id} key={contact.id} image={contact.image}>
+              <ListItemContact name={contact.name} id={contact.id} key={contact.id} image={contact.image} ml='0rem' gap={['1rem', '1rem', '1rem', '1rem']}>
                 <Button colorScheme='gray' onClick={() => onHandleSend(contact)} 
                 disabled={chats.some((chat: any) => chat.id === contact.id)} fontSize='14'>Talk</Button>
               </ListItemContact>

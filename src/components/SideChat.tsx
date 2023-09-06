@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Box, IconButton, Stack, Text } from "@chakra-ui/react";
-import { RiSendPlaneFill } from 'react-icons/ri'
+import { RiListCheck2, RiSendPlaneFill,  } from 'react-icons/ri'
 import { useStoreChat } from '../zustand/useStoreChat';
 import { useStoreConversation } from '../zustand/useStoreConversation';
 import Contacts from './Modals/Contacts';
@@ -20,7 +20,7 @@ const SideChat = () => {
   }, [refresh]);
 
   return (  
-    <Box display='flex' width={['100%', '100%', '100%', '20%']} fontSize='15px' position='relative' flexDirection='column' minWidth='90px' height={['25vh', '25vh', '25vh', '100vh']}>
+    <Box display='flex' width={['100%', '100%', '100%', '20%']} fontSize='15px' position='relative' flexDirection='column' minWidth='90px' height={['21vh', '21vh', '21vh', '100vh']}>
       <Box display='flex' alignItems='center' p='1rem' justifyContent='space-between'>
         <Box display='flex' alignItems='center' gap='1rem'>
           <Logo/>
@@ -37,8 +37,11 @@ const SideChat = () => {
       </Box>
       <Box display='flex' marginTop='1rem' flexDirection={['row', 'row', 'row', 'column']} gap='1rem'>
         {chats?.map((chat: any) => (
-          <ListItemContact name={chat.name} lastMessage={chat?.messages[chat?.messages?.length - 1]?.data} colorTitle='whiteAlpha.900' image={chat.image} focusConversation={() => setConversation(chat)} key={chat.id} mediaDisplay={['none', 'none', 'none', 'block']} />
+          <ListItemContact name={chat.name} lastMessage={chat?.messages[chat?.messages?.length - 1]?.data} colorTitle='whiteAlpha.900' image={chat.image} focusConversation={() => setConversation(chat)} key={chat.id} mediaDisplay={['none', 'none', 'none', 'block']} ml='1rem' gap={['0rem', '0rem', '0rem', '1rem']} />
         ))}
+        {!chats.length && (
+          <RiListCheck2/>
+        )}
       </Box>
       <Contacts isOpen={visible} onClose={onHandleClose}/>
     </Box>
